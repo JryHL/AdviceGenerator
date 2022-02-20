@@ -10,16 +10,168 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
+  	@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+  	:root {
+  		/*variables for modularity and concision*/
+  		--neutral-dark: hsl(217, 19%, 24%);
+  		--neutral-medium: hsl(217, 19%, 38%);
+  		--light-cyan: hsl(193, 38%, 86%);
+  		--neon-green: hsl(150, 100%, 66%);
+  	}
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    body {
+    	
+    }
+    
+    main {
+    	background-color: var(--neutral-dark);
+    	font-family: 'Manrope', sans-serif;
+    	display: grid;
+    	grid-template-rows: 1fr 1fr 1fr;
+    	justify-content: center;
+    	align-items: center;
+    	height: 100vh;
+    	
+    	transition: 0.1s;
+    }
+    #box {
+    	background-color: var(--neutral-medium);
+    	border-radius: 3%;
+    	width: 480px;
+    	height: 100%;
+    	display: grid;
+    	grid-template-rows: 1fr 2fr 1fr 0.8fr;
+    	align-items: center;
+    	justify-items: center;
+    }
+    
+
+    
+    #adviceHeading {
+    	text-align: center;
+    	color: var(--neon-green);
+    	font-size: 10px;
+    	letter-spacing: 5px;
+    }
+    
+    #adviceText {
+    	text-align: center;
+    	color: var(--light-cyan);
+    	font-size: 28px;
+    	margin-left: 27px;
+    	margin-right: 27px;
+    }
+    
+    #dividerImage {
+    	display: block;
+    	width: 100%;
+    	height: 100%;
+    	background: url(images/pattern-divider-desktop.svg);
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: 100%;
+    }
+    
+    #diceButton {
+    	height: 70px;
+    	width: 70px;
+    	justify-self: center;
+    	border-radius: 100%;
+    	position: relative;
+    	top: 35px;
+    	background-color: var(--neon-green);
+    	border:none;
+    	outline:none;
+    	
+    	transition: box-shadow 0.1s;
+    	
+    	
+    }
+    
+    #diceButton:hover {
+    	box-shadow: 0 0 10px 2px var(--neon-green);
+    }
+    
+    #diceImage {
+    	display: block;
+    	margin: auto;
+    }
+    /*For mobile*/
+    @media (max-width: 500px) {
+    	#box {
+    		width: 90vw;
+    	}
+    	main {
+    		grid-template-rows: 1fr 3fr 3fr;
+    	}
+    	#dividerImage {
+    	
+    		background: url(images/pattern-divider-mobile.svg);
+    		/*Due to a quirk of CSS, these properties always need to be placed after a background statement*/
+    		background-position: center;
+    		background-repeat: no-repeat;
+    		background-size: 100%;
+    	}
+    }
   </style>
+  
+  <script>
+  
+  		var lastRequestId = -1;
+  		function onClick() {
+  			const http = new XMLHttpRequest();
+  			const url="https://api.adviceslip.com/advice";
+  			http.open("GET", url);
+  			http.send();
+  			
+  			http.onreadystatechange=(e) => {
+  				let response = JSON.parse(http.responseText); 
+  				
+  				if (lastRequestId < 0 || lastRequestId != response.slip.id) {
+  					updateText(response);
+  					lastRequestId = response.slip.id;
+  				} else {
+  					//We know Id's exist at least up to the last served Id
+  					let randomId = 1 + Math.floor((lastRequestId - 1) * Math.random());
+  					getAdviceWithId(randomId);
+  					//Don't set lastRequestId to prevent it from getting lower with every random search
+  				}
+  				
+  			}
+  		}
+  		
+  		function getAdviceWithId(id){
+  			const http2 = new XMLHttpRequest();
+  			const url="https://api.adviceslip.com/advice/" + id;
+  			http2.open("GET", url);
+  			http2.send();
+  			http2.onreadystatechange=(e) => {
+  				updateText(JSON.parse(http2.responseText));
+  			}
+  		}
+  		
+  		function updateText(response) {
+  			document.getElementById("adviceHeading").innerHTML = "ADVICE # " + String(response.slip.id);
+			document.getElementById("adviceText").innerHTML = response.slip.advice;
+  		}
+  </script>
 </head>
 <body>
-
-  Advice #<!-- Advice ID goes here -->
-
-  "<!-- Advice text goes here -->"
   
+  <main>
+  	<div></div>
+  	<div id="box">
+  		<div id="adviceHeading">ADVICE #117</div>
+  		<div id="adviceText">"It's easy to sit up and take notice, what's difficult is getting up and taking action."</div>
+  		<div id="dividerImage"></div>
+  		<button id="diceButton" onclick="onClick()">
+  			<img src="images/icon-dice.svg" alt="Generate quote" id="diceImage">
+  		</button>
+  	</div>  
+  	<div></div>
+  </main>
+
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#https://www.linkedin.com/in/jerry-hou-liu-051203156/">Jerry Hou-Liu</a>.
