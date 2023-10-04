@@ -1,13 +1,89 @@
-<head></head>
+<head>
+  <title>Jerry Hou-Liu's Portfolio Page</title>
+  <link rel="stylesheet" href="index.css">
+
+</head>
 <body>
   <main>
-    
   <header>
-    <h1>Welcome to Jerry's portfolio page!</h1>
+    <div class="splash">
+      <h1>Jerry Hou-Liu</h1>
+      <h2>Computer engineering student at McGill University</h2>
+    </div>
+    <div class="socials">
+      <ul class="socialsList">
+        <li>
+          <a href="https://www.linkedin.com/in/jerry-hou-liu-051203156">
+            <i class="bi bi-linkedin linkedin-brand-guideline-compliance"></i>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:jerry.hou-liu@mail.mcgill.ca">
+            <i class="bi bi-envelope"></i>
+            School Email</a>
+        </li>
+      </ul>
+    </div>
+    <h2>Work Experience</h2>
+    <div class="carousel" id="internships">
+
+    </div>
+    <h2>Projects</h2>
+    <div class="carousel" id="projects">
+
+    </div>
   </header>
-    <div>My homepage is still under construction.</div>
-    <div>Click <a href="https://JryHL.github.io/AdviceGenerator.html">here</a> to be taken to the advice generator demo.</div>
   
-  </main>
-  
+  <template class="cardTemplate">
+    <div class="cardBorder">
+      <h3 class="cardTitle"></h3>
+      <div class="cardDateLoc"></div>
+      <br>
+      <div class="cardText"></div>
+    </div>
+  </template>
+
+  <script>
+    function addCard(params) {
+      let parentNode = document.getElementById(params.parentId);
+      let temp = document.getElementsByClassName('cardTemplate')[0];
+      let copy = temp.content.cloneNode(true);
+      console.log(copy);
+      copy.querySelector('.cardTitle').innerHTML = params.title;
+      copy.querySelector('.cardDateLoc').innerHTML = params.dateLoc;
+      copy.querySelector('.cardText').innerHTML = params.text;
+      parentNode.appendChild(copy);
+    }
+    addCard({
+      parentId: 'internships',
+      title: 'Software Developer Intern at Hikvision Canada',
+      dateLoc: 'May 2022 - April 2023 | Montreal, QC',
+      text: "<ul>\
+      <li>Used <b> JavaScript, HTML, CSS, React.js, and Vue.js</b> to implement frontend interfaces on <b>Node.js</b> based web servers</li>\
+      <li>Used <b>C++, PostgreSQL, and Qt</b> to implement new features and troubleshoot issues on server back-end and desktop projects</b></li>\
+      <li>Helped successfully ship the first version of a big-data enterprise platform by taking ownership of all or a major part of several frontend and backend features and numerous bug fixes</li>\
+      </ul>"
+    });
+
+    addCard({
+      parentId: 'projects',
+      title: 'Route Planning Project — Code.Jam(XI) Hackathon',
+      dateLoc: 'February 2022 | Montreal, QC',
+      text: "<ul>\
+      <li>Worked in a team of 3 using <b>Python</b> to implement a program to find optimal routes for truckers</li>\
+      <li>Won the <b>best beginner hack</b> award and 3rd place in the <b>123Loadboard contest</b></li>\
+      <li>See repository <a href=\"https://github.com/Ad2Am2/Code.Jam2022\">here</a></li>\
+      </ul>"
+    });
+    addCard({
+      parentId: 'projects',
+      title: 'Responsive advice generator webpage (Frontend mentor challenge)',
+      dateLoc: 'February 2022 | Montreal, QC',
+      text: "<ul>\
+      <li>Used <b>HTML, CSS, and Javascript</b> to create a graphically appealing and responsive website based on online challenge</li>\
+      <li>View the webpage <a href=\"smallDemos/AdviceGenerator.html\">here</a></li>\
+      </ul>"
+    });
+  </script>
 </body>
