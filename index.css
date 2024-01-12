@@ -13,7 +13,7 @@
 
 .splash {
     background-color: var(--splash-color);
-    padding: 3em 3em;
+    padding: 3em 5vw;
     & h1 {
         color: var(--light-high-emphasis);
         font-family: var(--sans-serif);
@@ -30,6 +30,16 @@
         color: var(--light-high-emphasis)
     }
 }
+
+.mainbody {
+    padding: 2vh 5vw;
+    & h2 {
+        font-family: var(--serif);
+        font-size: 2.5em;
+    }
+}
+
+
 
 .socialsList {
     list-style-type: none;
@@ -74,36 +84,34 @@
 }
 
 .carousel {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: flex;
-    padding-left: 1em;
-    padding-right: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: start;
+    grid-gap: 1em;
 }
 
 .cardBorder {
-    width: 300px;
-    height: 400px;
+    width: auto;
     border-style: solid;
     border-radius: 3px;
     border-width: 1px;
     border-color: var(--dark-low-emphasis);
     box-shadow: 3px 3px 5px gray;
     padding: 10px;
-    margin-left: 1em;
-    margin-right: 1em;
-    overflow: scroll;
 }
 .cardTitle {
     font-family: var(--sans-serif);
     color: var(--dark-high-emphasis);
+    font-size: 2em;
 }
 .cardDateLoc {
     font-family: var(--serif);
     color: var(--dark-low-emphasis);
     font-style: italic;
+    font-size: 1.2em;
 }
 .cardText {
     font-family: var(--serif);
     color: var(--dark-high-emphasis);
+    font-size: 1.2em;
 }
