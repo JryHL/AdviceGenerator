@@ -24,7 +24,7 @@
         color: var(--light-low-emphasis);
         font-family: var(--serif);
         font-weight: normal;
-        font-size: min(70px, 14vw);
+        font-size: min(50px, 7vw);
     }
     & .bi {
         color: var(--light-high-emphasis)
