@@ -92,6 +92,8 @@
 
 .cardBorder {
     width: auto;
+		height: 600px;
+		overflow: auto;
     border-style: solid;
     border-radius: 3px;
     border-width: 1px;
