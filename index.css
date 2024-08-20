@@ -84,22 +84,20 @@
 }
 
 .carousel {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    justify-content: start;
-    grid-gap: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .cardBorder {
-    width: auto;
-		height: 600px;
-		overflow: auto;
+    width: 100%;
     border-style: solid;
     border-radius: 3px;
     border-width: 1px;
     border-color: var(--dark-low-emphasis);
     box-shadow: 3px 3px 5px gray;
     padding: 10px;
+    background-color: white;
 }
 .cardTitle {
     font-family: var(--sans-serif);
