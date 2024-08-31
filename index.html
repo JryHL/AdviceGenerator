@@ -1,170 +1,222 @@
+<!DOCTYPE html>
+<html>
 <head>
-  <title>Jerry Hou-Liu's Portfolio Page</title>
-  <link rel="stylesheet" href="index.css">
-
+    <title>
+        Jerry Hou-Liu's Portfolio
+    </title>
+    <link href="main.css" rel="stylesheet" type="text/css"/> 
 </head>
+
 <body>
-  <main>
-  <header>
-    <div class="splash">
-      <h1>Jerry Hou-Liu</h1>
-      <h2>Software dev with real-world full-stack experience</h2>
-    </div>
-    <div class="socials">
-      <ul class="socialsList">
-        <li>
-          <a href="https://www.linkedin.com/in/jerry-hou-liu-051203156">
-            <i class="bi bi-linkedin linkedin-brand-guideline-compliance"></i>
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="mailto:jerryhl2001+careers@gmail.com">
-            <i class="bi bi-envelope"></i>
-            Personal Email</a>
-        </li>
-        <li>
-          <a href="mailto:jerry.hou-liu@mail.mcgill.ca">
-            <i class="bi bi-envelope"></i>
-            School Email</a>
-        </li>
-      </ul>
-    </div>
-    <div class="mainbody">
+    <header>
+        <div class="splash">
+            <h1 class="name">Jerry Hou-Liu</h1>
+            <h2 class="subtitle">Full-stack software developer</h2>
+            <div class="scroll-indicator">
+                Scroll down for more
+                <div class="arrow"></div>
+            </div>
+            <div class="socials">
+                <a class="linked-in" href="https://www.linkedin.com/in/jerry-hou-liu/" target="_blank">
+                    <i class="bi bi-linkedin">
+                    </i>
+                    &nbsp;&thinsp;LinkedIn
+                </a>
+                <a class="email" href="mailto:jerryhl2001+careers@gmail.com">
+                    <i class="bi bi-envelope">
+                    </i>
+                    Email
+                </a>
+                <a class="resume" href="files/Jerry_Hou-Liu_Resume.pdf">
+                    <i class="bi bi-file-earmark-person">
+                    </i>
+                    Résumé
+                </a>
+                <a class="github" href="https://github.com/JryHL" target="_blank">
+                    <i class="bi bi-github">
+                    </i>
+                    GitHub
+                </a>
+            </div>
+        </div>
 
-      <h2>Education</h2>
-      <div class="carousel" id="education"></div>
+    </header>
+    <div class="smaller-splash" id="smaller-splash">
+       
+        <div class="small-name">Jerry Hou-Liu</div>
 
-      <h2>Work Experience</h2>
-      <div class="carousel" id="internships">
-
-      </div>
-      <h2>Projects</h2>
-      <div class="carousel" id="projects">
-
-      </div>
-    </div>
-  </header>
+        <div class="small-socials">
+            <a class="linked-in" href="https://www.linkedin.com/in/jerry-hou-liu/" target="_blank">
+                <i class="bi bi-linkedin">
+                </i>
+            </a>
+            <a class="email" href="mailto:jerryhl2001+careers@gmail.com">
+                <i class="bi bi-envelope">
+                </i>
+            </a>
+            <a class="resume" href="files/Jerry_Hou-Liu_Resume.pdf">
+                <i class="bi bi-file-earmark-person">
+                </i>
+            </a>
+            <a class="github" href="https://github.com/JryHL" target="_blank">
+                <i class="bi bi-github">
+                </i>
+            </a>
+        </div>
   
-  <template class="cardTemplate">
-    <div class="cardBorder">
-      <h3 class="cardTitle"></h3>
-      <div class="cardDateLoc"></div>
-      <br>
-      <div class="cardText"></div>
     </div>
-  </template>
+    <main class="main-content">
+        <section class="projects">
+            <h2 class="projects-heading"> My projects </h2>
+            <div class="card-carousel">
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">Research</div> 
+                    <div class="tag">Published</div> 
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> Concretize </h3>
+                    <img src="images/screenshots/Concretize.png" class="project-screenshot" 
+                    alt="Screenshot of the Concretize program, containing a text
+                    input for scenario specifications on the left and a generated scenario on the right"></img>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Python, Vue, Node.js</div>
+                    <div class="project-desc">A program that turns simple specifications written in our custom language into specific scenarios for self-driving car testing.</div>
+                    <div class="project-desc">Done in a group of 3. Tool paper accepted for the 2024 ACM/IEEE MODELS conference.</div>
+                </div>
+                <a href="https://github.com/ArenBabikian/concretize" target="_blank" class="project-link">View Repository<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
 
-  <script>
-    function addCard(params) {
-      let parentNode = document.getElementById(params.parentId);
-      let temp = document.getElementsByClassName('cardTemplate')[0];
-      let copy = temp.content.cloneNode(true);
-      console.log(copy);
-      copy.querySelector('.cardTitle').innerHTML = params.title;
-      copy.querySelector('.cardDateLoc').innerHTML = params.dateLoc;
-      copy.querySelector('.cardText').innerHTML = params.text;
-      parentNode.appendChild(copy);
-    }
-    addCard({
-      parentId: 'education',
-      title: 'B.Eng in Computer Engineering at McGill University',
-      dateLoc: 'September 2019 - May 2024 | Montreal, QC',
-      text: "<ul>\
-      <li>Studied computer engineering basics, artificial intelligence, human-computer interaction, embedded programming, and more</li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'internships',
-      title: 'Software Developer Intern at Hikvision Canada',
-      dateLoc: 'May 2022 - April 2023 | Montreal, QC',
-      text: "<ul>\
-      <li>Used <b> JavaScript, HTML, CSS, React.js, and Vue.js</b> to implement frontend interfaces on <b>Node.js</b> based web servers</li>\
-      <li>Used <b>C++, PostgreSQL, and Qt</b> to implement new features and troubleshoot issues on server back-end and desktop projects</b></li>\
-      <li>Helped successfully ship the first version of a big-data enterprise platform by taking ownership of all or a major part of several frontend and backend features and numerous bug fixes</li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Concretize (Software Tool and Associated Paper)',
-      dateLoc: 'May 2024 - Aug 2024',
-      text: "<ul>\
-      <li>Created a software tool for turning specifications written in our custom programming language into concrete scenarios for testing self-driving cars in a group of 3</li>\
-      <li>Developed a easy-to-use user interface using Vue.js and integrated it with a Python backend using TextX for parsing inputs and Flask for APIs</li>\
-      <li>Accepted into the <b>2024 ACM/IEEE conference on Model Driven Engineering Languages and Systems (MODELS)</b></li>\
-      <li>See repository <a href=\"https://github.com/ArenBabikian/concretize\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Smart RSS Reader (self-directed)',
-      dateLoc: 'May 2024',
-      text: "<ul>\
-      <li>Developed a <b>full-stack web application</b> on my own that fetches news stories and intelligently categorizes and ranks them, using <b>Vue and Node.js</b> for frontend and <b>Python with Flask</b> for backend</li>\
-      <li>Used <b>Natural Language Toolkit (NLTK)</b> to process text, detect keywords, and perform sentiment analysis to facilitate categorization and ranking</li>\
-      <li>Used <b>threading</b> to fetch stories in the background, providing more usable experience even with 100+ RSS sources</li>\
-      <li>See repository <a href=\"https://github.com/JryHL/RSSReader\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Fantasy Football Web Application (Software Engineering Practice course)',
-      dateLoc: 'January - April 2024',
-      text: "<ul>\
-      <li>Created a <b>full-stack web application</b> in a team of 10 as part of software engineering practice course</li>\
-      <li>Took the lead on <b>frontend development</b> using <b>React and Node.js</b></li>\
-      <li>Used <b>scrum and agile techniques</b> and <b>automated testing</b> to fulfil user stories</li>\
-      <li>See repository <a href=\"https://github.com/JamesDarby345/5LeagueFantasy\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Election Information Viewer (Human-Computer Interaction Course)',
-      dateLoc: 'September – December 2023',
-      text: "<ul>\
-      <li>Worked in a group of 3 to create a <b>web application</b> agent that allows users to view election information as part of a human-computer interaction course</li>\
-      <li>Applied <b>usability testing</b>, <b>usability heuristics</b>, and other design methods and principles to create a usable and appealing user interface</li>\
-      <li>See repository <a href=\"https://github.com/LukeBebee/HCI-GroupJ-Project\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'AI-based Board Game Agent (Artificial Intelligence Course)',
-      dateLoc: 'November – December 2023',
-      text: "<ul>\
-      <li>Worked in a group of 2 to create an <b>artificial intelligence</b> agent for a special in-class board game as the final project in an artificial intelligence course using <b>Python</b></li>\
-      <li>Applied <b>Monte Carlo tree search</b> in the final project; also experimented with minimax search, greedy algorithm, and heuristics as part of trial-and-error process</li>\
-      <li>Private repository for recurring school assignment available upon request to potential employers</li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'TruckMatchr — Code.Jam(XI) Hackathon',
-      dateLoc: 'February 2022',
-      text: "<ul>\
-      <li>Worked in a team of 3 using <b>Python</b> to implement a program to find optimal routes for truckers</li>\
-      <li>Won the <b>best beginner hack</b> award and 3rd place in the <b>123Loadboard contest</b></li>\
-      <li>See repository <a href=\"https://github.com/Ad2Am2/Code.Jam2022\">here</a></li>\
-      <li>See devpost <a href=\"https://devpost.com/software/truckmatchr\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Responsive advice generator webpage (Frontend mentor challenge)',
-      dateLoc: 'February 2022',
-      text: "<ul>\
-      <li>Used <b>HTML, CSS, and Javascript</b> to create a graphically appealing and responsive website based on online challenge</li>\
-      <li>View the webpage <a href=\"smallDemos/AdviceGenerator.html\">here</a></li>\
-      </ul>"
-    });
-    addCard({
-      parentId: 'projects',
-      title: 'Grocery Store Management System (School Project)',
-      dateLoc: 'January ­- April 2022',
-      text: "<ul>\
-      <li>Worked in a team of 6 on a system involving a <b>Java backend, Vue frontend, and Android client</b> as part of ECSE 321 (Introduction to Software Engineering)</li>\
-      <li>View the repository <a href=\"https://github.com/McGill-ECSE321-Winter2022/project-group-group-09\">here</a></li>\
-      </ul>"
-    });
-  </script>
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">Independent</div>  
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> RSS Reader </h3>
+                    <img src="images/screenshots/RSSReader.png" class="project-screenshot" 
+                    alt="Screenshot of the RSS Reader program, containing news stories that have been categorized using keywords"></img>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Python, Vue, Node.js, SQLite, Natural Language Toolkit</div>
+                    <div class="project-desc">A smart RSS Reader that categorizes and ranks stories for you.</div>
+                    <div class="project-desc">Independently made.</div>
+                </div>
+                <a href="https://github.com/JryHL/RSSReader" target="_blank" class="project-link">View Repository<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">University Project</div>  
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> Fantasy Football Web Application </h3>
+                    <img src="images/screenshots/5LeagueFantasy.png" class="project-screenshot" 
+                    alt="Screenshot of the 5 League Fantasy program with an interactive list of players"></img>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Java, Springboot, React, Node.js, PostgreSQL</div>
+                    <div class="project-desc">A full-stack application allowing users to add players into teams.</div>
+                    <div class="project-desc">Led the development of the frontend in a 10-person school project involving scrum and automated testing.</div>
+                </div>
+                <a href="https://github.com/JamesDarby345/5LeagueFantasy" target="_blank" class="project-link">View Repository<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">University Project</div>  
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> Election Information Viewer </h3>
+                    <img src="images/screenshots/ElectionInfo.png" class="project-screenshot" 
+                    alt="Screenshot of the Election Information program, showing different options"></img>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">React, Node.js, MongoDB, Next.js</div>
+                    <div class="project-desc">A full-stack application that interfaces with public APIs to view election information.</div>
+                    <div class="project-desc">Worked in a group of 3 as part of a human-computer interaction school project involving usability testing.</div>
+                </div>
+                <a href="https://github.com/LukeBebee/HCI-GroupJ-Project" target="_blank" class="project-link">View Repository<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">University Project</div>  
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> Board Game AI </h3>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Python</div>
+                    <div class="project-desc">AI program that uses Monte Carlo tree search to intelligently play an in-class board game.</div>
+                    <div class="project-desc">Worked in a group of 2 for an artificial intelligence class.</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="tags"> 
+                    <div class="tag">Hackathon</div>  
+                    <div class="tag">Award</div>  
+                </div>
+                <div class="left-col">
+                    <h3 class="entry-name"> TruckMatchr </h3>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Python</div>
+                    <div class="project-desc">Used simulated annealing to find good routes for truckers.</div>
+                    <div class="project-desc">Worked in a group of 3 for Code.Jam(XI) hackathon, winning best beginner hack and 3rd place in the 123Loadboard contest.</div>
+                </div>
+                <a href="https://devpost.com/software/truckmatchr" target="_blank" class="project-link">View Devpost<i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+        </div>
+        </section>
+        <section class="more-info">
+            <h2>Work experience</h2>
+            <div class="card">
+                <div class="left-col">
+                    <h3 class="entry-name">Software Developer Intern</h3>
+                    <div class="context"><strong>Hikvision Canada</strong></div>
+                    <div class="context">May 2022 &ndash; April 2023</div>
+                    <div class="context">Montreal, QC</div>
+                </div>
+                <div class="right-col">
+                    <div class="project-technologies">Vue, React, Node.js, C++, PostgreSQL, Qt</div>
+                    <div class="project-desc">Performed full-stack development and helped ship complex enterprise software.</div>
+                    <div class="project-desc">Used tools like Confluence, Jira, and Git as part of a professional environment.</div>
+                </div>
+            </div>
+        </section>
+        <section class="education-background">
+            <h2>Education</h2>
+            <div class="card">
+                <div class="left-col">
+                    <h3 class="entry-name">Bachelor of Engineering in Computer Engineering</h3>
+                    <div class="context"><strong>McGill University</strong></div>
+                    <div class="context">September 2019 &ndash; May 2024</div>
+                    <div class="context">Montreal, QC</div>
+                </div>
+                <div class="right-col">
+                    <div class="project-desc">Coursework includes algorithms
+                         and data structures, artificial intelligence, software engineering principles, and human-computer interaction.</div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
+
+<script>
+    const toolbar = document.getElementById("smaller-splash");
+    addEventListener("scroll", (e) => handleScroll());
+    addEventListener("resize", (e) => handleScroll());
+    function handleScroll() {
+        if (window.scrollY >= window.innerHeight) {
+            toolbar.style.visibility = "visible";
+            toolbar.style.height = "3em";
+        } else {
+            toolbar.style.visibility = "hidden";
+            toolbar.style.height = "0";
+        }
+    }
+</script>
+
+</html>

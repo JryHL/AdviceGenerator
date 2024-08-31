@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+:root {
+    --dark: #232528;
+    --light: #FAFAFF;
+    --gray: #bbbbbe;
+    --subtle-shadow: #e2e2e9;
+    --accent-a: #F58F29;
+    --accent-b: #3083DC;
+}
+
+body, h1 {
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.splash {
+    background-color: var(--dark);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    .name {
+        color: var(--light);
+        font-weight: 300;
+        font-size: min(12vw, 7em);
+    }
+    
+    .subtitle {
+        color: var(--gray);
+        font-weight: 300;
+        font-size: min(5vw, 2em);
+    }
+    
+    .scroll-indicator {
+        color: var(--accent-a);
+        font-weight: 300;
+        font-size: 1.2em;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.6em;
+    
+        animation-name: scrollRipple;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+    }
+    .arrow {
+        background-color: var(--accent-a);
+        width: 2.5em;
+        height: 1.5em;
+        clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+    }
+
+    
+}
+
+
+
+.socials {
+
+    justify-content: center;
+    align-items: center;
+    column-gap: 5em;
+    width: 100%;
+}
+.socials, .small-socials {
+    color: var(--light);
+
+
+    display: flex;
+    flex-direction: row;
+
+    .bi {
+        /* LinkedIn brand guidelines require 21px width */
+        font-size: 22px;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--light);
+        transition: 0.2s;
+        padding: 0.3em;
+    }
+
+    a:hover {
+        background-color:var(--gray);
+        color:var(--dark);
+        
+    }
+}
+
+@keyframes scrollRipple {
+    0% {bottom: 6vh;}
+    50% {bottom: 7vh;}
+    100% {bottom: 6vh;}
+}
+
+.smaller-splash {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: var(--dark);
+    color: var(--light);
+    visibility: hidden;
+    transition: height 0.2s, visibility 0.1s;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .small-name {
+        font-size: 1.5em;
+        font-weight: 300;
+        margin-left: 1em;
+    }
+    .small-socials {
+        margin-right: 1em;
+    }
+}
+
+
+.main-content {
+    background-color: var(--light);
+    color: var(--dark);
+    h2 {
+        margin: 0;
+        padding: 2.4em 0.5em 0.5em;
+        font-size: 3em;
+        font-weight: 300;
+        background-color: var(--accent-a);
+    }
+
+    .card {
+        position: relative;
+        margin: 2em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        padding-top: 2.3em;
+        padding-bottom: 6em;
+        border-color: var(--gray);
+        border-width: 1px;
+        border-style: solid;
+        box-shadow: 0 5px 7px 5px var(--subtle-shadow);
+        display: grid;
+        grid-template-columns: minmax(200px, 50%) 1fr;
+        column-gap: 1em;
+        align-items:first baseline;
+        .entry-name {
+            font-size: 2em;
+            font-weight: 500;
+        }
+
+        .project-technologies {
+            font-style: italic;
+            font-size: 1.5em;
+        }   
+
+        .project-desc {
+            font-weight: 300;
+            font-size: 1.3em;
+            margin-top: 0.5em;
+        }
+        .project-screenshot {
+            width: 100%;
+        }
+        .context {
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .project-link {
+            
+            position: absolute;
+            right: 1.5em;
+            bottom: 1.5em;
+            display: block;
+            .bi {
+                margin-left: 0.25em;
+            }
+            background-color: var(--accent-b);
+            text-decoration: none;
+            color: var(--light);
+            transition: 0.2s;
+
+            margin-top: 0.5em;
+            padding: 0.5em;
+            transition: 0.2s;
+            font-weight: 300;
+            font-size: 1.3em;
+            width: fit-content;
+        }
+        .project-link:hover {
+            background-color: var(--dark);
+            color: var(--accent-a);
+            
+        }
+
+        .tags {
+            position: absolute;
+            left: 1.5em;
+            top: 1.5em;
+            display: flex;
+            flex-direction: row;
+            column-gap: 0.5em;
+            .tag {
+                background-color: var(--dark);
+                color: var(--light);
+                border-radius: 0.25em;
+                padding: 0.5em;
+            }
+        }
+    }
+
+}
+
+.card-carousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 100em) {
+    .card-carousel {
+        grid-template-columns: 1fr;
+    }
+}
