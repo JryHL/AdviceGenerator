@@ -292,15 +292,15 @@ body {
     }
 
     :root {
-        --splash-name-size: min(15vw, 15vh);
-        --splash-subtitle-size: min(5vw, 5vh);
-        --very-small-size: 2vh;
-        --small-size: 2.5vh;
-        --medium-size: 3vh;
-        --big-size: 3.5vh;
-        --very-big-size: 4vh;
+        --splash-name-size: min(15lvw, 15lvh);
+        --splash-subtitle-size: min(5lvw, 5lvh);
+        --very-small-size: 2lvh;
+        --small-size: 2.5lvh;
+        --medium-size: 3lvh;
+        --big-size: 3.5lvh;
+        --very-big-size: 4lvh;
 
-        --small-gap: 1vh;
-        --very-small-gap: 0.5vh;
+        --small-gap: 1lvh;
+        --very-small-gap: 0.5lvh;
     }
 }
