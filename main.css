@@ -8,6 +8,15 @@
     --subtle-shadow: #e2e2e9;
     --accent-a: #F58F29;
     --accent-b: #3083DC;
+    --splash-name-size: min(12vw, 7rem);
+    --splash-subtitle-size: min(5vw, 2rem);
+    --very-big-size: 3rem;
+    --big-size: 2rem;
+    --medium-size: 1.5rem;
+    --small-size: 1.3rem;
+    --very-small-size: 1rem;
+    --small-gap: 0.5rem;
+    --tiny-gap: 0.25rem;
 }
 
 body, h1 {
@@ -30,19 +39,19 @@ body {
     .name {
         color: var(--light);
         font-weight: 300;
-        font-size: min(12vw, 7em);
+        font-size: var(--splash-name-size);
     }
     
     .subtitle {
         color: var(--gray);
         font-weight: 300;
-        font-size: min(5vw, 2em);
+        font-size: var(--splash-subtitle-size);
     }
     
     .scroll-indicator {
         color: var(--accent-a);
         font-weight: 300;
-        font-size: 1.2em;
+        font-size: var(--small-size);
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -57,7 +66,7 @@ body {
     .arrow {
         background-color: var(--accent-a);
         width: 2.5em;
-        height: 1.5em;
+        height: var(--medium-size);
         clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
     }
 
@@ -72,6 +81,10 @@ body {
     align-items: center;
     column-gap: 5em;
     width: 100%;
+    text-align: center;
+    .social-label {
+        display: inline;
+    }
 }
 .socials, .small-socials {
     color: var(--light);
@@ -79,6 +92,7 @@ body {
 
     display: flex;
     flex-direction: row;
+    font-size: var(--small-size);
 
     .bi {
         /* LinkedIn brand guidelines require 21px width */
@@ -98,6 +112,8 @@ body {
         
     }
 }
+
+
 
 @keyframes scrollRipple {
     0% {bottom: 6vh;}
@@ -119,10 +135,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 
     .small-name {
-        font-size: 1.5em;
+        font-size: var(--medium-size);
         font-weight: 300;
         margin-left: 1em;
     }
@@ -138,16 +154,16 @@ body {
     h2 {
         margin: 0;
         padding: 2.4em 0.5em 0.5em;
-        font-size: 3em;
+        font-size: var(--very-big-size);
         font-weight: 300;
         background-color: var(--accent-a);
     }
 
     .card {
         position: relative;
-        margin: 2em;
-        padding-left: 1.5em;
-        padding-right: 1.5em;
+        margin: var(--big-size);
+        padding-left: var(--medium-size);
+        padding-right: var(--medium-size);
         padding-top: 2.3em;
         padding-bottom: 6em;
         border-color: var(--gray);
@@ -159,19 +175,19 @@ body {
         column-gap: 1em;
         align-items:first baseline;
         .entry-name {
-            font-size: 2em;
+            font-size: var(--big-size);
             font-weight: 500;
         }
 
         .project-technologies {
             font-style: italic;
-            font-size: 1.5em;
+            font-size: var(--medium-size);
         }   
 
         .project-desc {
             font-weight: 300;
-            font-size: 1.3em;
-            margin-top: 0.5em;
+            font-size: var(--small-size);
+            margin-top:  var(--small-gap);
         }
         .project-screenshot {
             width: 100%;
@@ -179,27 +195,28 @@ body {
         .context {
             font-weight: 300;
             font-style: italic;
+            font-size: var(--small-size);
         }
 
         .project-link {
             
             position: absolute;
-            right: 1.5em;
-            bottom: 1.5em;
+            right: var(--medium-size);
+            bottom: var(--medium-size);
             display: block;
             .bi {
-                margin-left: 0.25em;
+                margin-left:  var(--very-small-gap);
             }
             background-color: var(--accent-b);
             text-decoration: none;
             color: var(--light);
             transition: 0.2s;
 
-            margin-top: 0.5em;
-            padding: 0.5em;
+            margin-top:  var(--small-gap);
+            padding:  var(--small-gap);
             transition: 0.2s;
             font-weight: 300;
-            font-size: 1.3em;
+            font-size: var(--small-size);
             width: fit-content;
         }
         .project-link:hover {
@@ -210,16 +227,17 @@ body {
 
         .tags {
             position: absolute;
-            left: 1.5em;
-            top: 1.5em;
+            left: var(--medium-size);
+            top: var(--medium-size);
             display: flex;
             flex-direction: row;
-            column-gap: 0.5em;
+            column-gap:  var(--small-gap);
             .tag {
                 background-color: var(--dark);
                 color: var(--light);
-                border-radius: 0.25em;
-                padding: 0.5em;
+                border-radius:  var(--very-small-gap);
+                padding:  var(--small-gap);
+                font-size: var(--very-small-size);
             }
         }
     }
@@ -231,8 +249,58 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
-@media only screen and (max-width: 100em) {
+/* smaller-width desktop windows */
+@media screen and (max-width:100rem) {
+
     .card-carousel {
         grid-template-columns: 1fr;
+    }
+}
+
+/* mobile */
+
+@media screen and (max-width: 70rem) {
+
+    .socials {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2vw;
+        .bi {
+            font-size: max(22px, min(7vh, 7vw));
+        }
+        .social-label {
+            display: block;
+            font-weight: 100;
+        }
+    }
+
+    .splash {
+        text-align: center;
+    }
+    .small-socials .bi {
+        font-size: var(--small-size);
+    }
+
+    .main-content h2 {
+        padding: 3vh 2vh 2vh 2vh;
+    }
+
+    .main-content .card {
+        grid-template-columns: 1fr;
+        padding-top: 5vh;
+        padding-bottom: 9vh;
+    }
+
+    :root {
+        --splash-name-size: min(15vw, 15vh);
+        --splash-subtitle-size: min(5vw, 5vh);
+        --very-small-size: 2vh;
+        --small-size: 2.5vh;
+        --medium-size: 3vh;
+        --big-size: 3.5vh;
+        --very-big-size: 4vh;
+
+        --small-gap: 1vh;
+        --very-small-gap: 0.5vh;
     }
 }
